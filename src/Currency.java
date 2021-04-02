@@ -131,6 +131,13 @@ public class Currency {
 			System.out.print("Please check if the currency code you entered is correct!\n");
 			return;
 		}
+		
+		// If a transaction was already made with selected currency, the currency should not be deleted because we lose data of the transaction !
+		sql = "SELECT currency_id FROM exchange_transactions;";
+		if(Database.checkIfExists(con, chosenCurrencyCode, sql)) {
+			System.out.print("Can not delete selected currency, because transactions were already made with it!\n");
+			return;
+		}
 
 		// Firstly we need to delete data from 'exchange_rate' table because it has a foreign key to 'currency' table
 		String exchangeQuery = "DELETE FROM exchange_rate WHERE currency_id=" + "'" + chosenCurrencyCode + "';";		
