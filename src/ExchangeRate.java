@@ -19,6 +19,12 @@ public class ExchangeRate extends Currency {
 		this.sellRate = sellRate;
 	}
 	
+	public ExchangeRate() {
+		this.unit = 0;
+		this.buyRate = 0;
+		this.sellRate = 0;
+	}
+
 	public int getUnit() {
 		return this.unit;
 	}
@@ -45,7 +51,7 @@ public class ExchangeRate extends Currency {
 	
 	// This method adds exchange to the 'exchange_rate' table in the database
 	// It takes connection to the database and a currency object which needs to be added as parameters
-	public static void addNewExchange(Connection con, Currency toBeAdded, Scanner input) {
+	public void addNewExchange(Connection con, Currency toBeAdded, Scanner input) {
 		
 		System.out.print("Enter the currency unit [INT]: ");
 		int unit = input.nextInt();		
@@ -62,7 +68,7 @@ public class ExchangeRate extends Currency {
 	
 	// This method collects data about a new exchange for an existing currency in the database
 	// It is run from the main class
-	public static void addExchange(Connection con, Scanner input) {
+	public void addExchange(Connection con, Scanner input) {
 		
 		System.out.print("Enter code of the currency for which you want to add exchange rate [INT]: ");
 		int chosenCurrencyCode = input.nextInt();
@@ -97,7 +103,7 @@ public class ExchangeRate extends Currency {
 	}
 	
 	// This method allows users to modify existing exchange rates 
-	public static void modifyExchange(Connection con, Scanner input) {
+	public void modifyExchange(Connection con, Scanner input) {
 		
 		System.out.print("Enter ID of the currency for which you want to modify the exchange rate [INT]: ");
 		int chosenCurrencyCode = input.nextInt();
@@ -123,7 +129,7 @@ public class ExchangeRate extends Currency {
 	}
 	
 	// This method allows users to delete exchanges from the database
-	public static void deleteExchange(Connection con, Scanner input) {
+	public void deleteExchange(Connection con, Scanner input) {
 		
 		System.out.print("Currency symbol you want to delete from exchange rate [INT]: ");
 		int chosenCurrencyCode = input.nextInt();

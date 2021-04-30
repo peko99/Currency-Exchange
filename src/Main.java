@@ -30,6 +30,11 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		
+		// Creating objects to use their methods
+		Currency currency = new Currency();
+		ExchangeRate exchangeRate = new ExchangeRate();
+		ExchangeActions exchangeActions = new ExchangeActions();
+		
 		System.out.println("Hello! Welcome to Currency Exchange app!");
 		System.out.println("All exchange rates shown in euros - EUR (€)");
 		int userChoice = -1;
@@ -48,29 +53,29 @@ public class Main {
 					displayMenu();
 					break;
 				case 1: 
-					Currency.addCurrency(con, input);
+					currency.addCurrency(con, input);
 					break;
 				case 2:
-					Currency.modifyCurrency(con, input);
+					currency.modifyCurrency(con, input);
 					break;
 				case 3:
-					Currency.deleteCurrency(con, input);
+					currency.deleteCurrency(con, input);
 					break;
 				case 4:
-					ExchangeRate.addExchange(con, input);
+					exchangeRate.addExchange(con, input);
 					break;
 				case 5: 
-					ExchangeRate.modifyExchange(con, input);
+					exchangeRate.modifyExchange(con, input);
 					break;
 				case 6:
-					ExchangeRate.deleteExchange(con, input);
+					exchangeRate.deleteExchange(con, input);
 					break;
 				case 7:
 					// Parameter 1 helps us distinguish between buy and sell option in transactionCurrency method
-					ExchangeActions.transactionCurrency(con, 1, input);
+					exchangeActions.transactionCurrency(con, 1, input);
 					break;
 				case 8:
-					ExchangeActions.transactionCurrency(con, 2, input);
+					exchangeActions.transactionCurrency(con, 2, input);
 					break;
 				case 9:
 					Database.resetDatabase(con);

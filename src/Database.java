@@ -15,7 +15,7 @@ public class Database {
 	
 	private static String jdbcURL = "jdbc:postgresql://localhost:5432/currencyexchange";
 	private static String username = "postgres";	//change to your username
-	private static String password = "admin"; 		//change to your password
+	private static String password = "user"; 		//change to your password
 	
 	// This method is used to establish a connection to the PostgreSQL database created by setup.sql file
 	// Returns established connection if it was established correctly, null otherwise

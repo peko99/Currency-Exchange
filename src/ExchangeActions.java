@@ -11,7 +11,7 @@ public class ExchangeActions {
 	// This method is used to ask users which currency they want to buy or sell
 	// It takes connection to the database as a parameter, and an integer which tells us if users want to buy or sell the chosen currency
 	// We send the integer from the main function, 1 - buy, 2 - sell
-	public static void transactionCurrency(Connection con, int buyOrSell, Scanner input) {
+	public void transactionCurrency(Connection con, int buyOrSell, Scanner input) {
 		
 		System.out.print("Enter code of the currency [INT]: ");
 		int chosenCurrencyCode = input.nextInt();
@@ -66,7 +66,7 @@ public class ExchangeActions {
 	}
 	
 	// This method executes purchases of foreign currencies, it takes connection to the database and an object which users want to purchase as parameters
-	public static void executePurchase(Connection con, ExchangeRate toBeBought, Scanner input) {
+	public void executePurchase(Connection con, ExchangeRate toBeBought, Scanner input) {
 		
 		System.out.print("How much of " + toBeBought.getCurrencySymbol() + " do you want to buy [DOUBLE .]: ");
 		double amountToBuy = input.nextDouble();
@@ -83,7 +83,7 @@ public class ExchangeActions {
 	}
 	
 	// This method executes exchanges of foreign currencies for euro in a similar way method above is used to sell euro for foreign currency
-	public static void executeSelling(Connection con, ExchangeRate toBeSold, Scanner input) {
+	public void executeSelling(Connection con, ExchangeRate toBeSold, Scanner input) {
 		
 		System.out.print("How much of " + toBeSold.getCurrencySymbol() + " do you want to sell [DOUBLE .]: ");
 		double amountToSell = input.nextDouble();

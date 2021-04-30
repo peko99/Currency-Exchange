@@ -59,7 +59,7 @@ public class Currency {
 	
 	// This method adds new currencies to database table 'currency'
 	// Takes connection to the database as a parameter
-	public static void addCurrency(Connection con, Scanner input) {
+	public void addCurrency(Connection con, Scanner input) {
 		
 		// Asking users to input currency data to be inserted in the database
 		System.out.print("Enter the currency code [INT]: ");
@@ -88,12 +88,13 @@ public class Currency {
 		Database.executeSql(currencyQuery, con);
 				
 		// Immediately after creating a new currency, we go to add exchange rates for it
-		ExchangeRate.addNewExchange(con, toBeAdded, input);
+		ExchangeRate exchangeRate = new ExchangeRate();
+		exchangeRate.addNewExchange(con, toBeAdded, input);
 	}
 	
 	// This method allows users to modify currency data (except currency code which always stays the same)
 	// It takes connection to the database as a parameter
-	public static void modifyCurrency(Connection con, Scanner input) {
+	public void modifyCurrency(Connection con, Scanner input) {
 		
 		System.out.print("Code of the currency you want to modify [INT]: ");
 		int chosenCurrencyCode = input.nextInt();	
@@ -121,7 +122,7 @@ public class Currency {
 	}
 	
 	// This method allows users to delete currencies from the database, it deletes currencies exxhange rates as well
-	public static void deleteCurrency(Connection con, Scanner input) {
+	public void deleteCurrency(Connection con, Scanner input) {
 		
 		System.out.print("Code of the currency you want to delete [INT]: ");		
 		int chosenCurrencyCode = input.nextInt();
